@@ -125,7 +125,7 @@ let url;
 document.querySelector("#plusBtn").addEventListener("click", addWidget);
 
 function AskServer() {
-  url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=5d066958a60d315387d9492393935c19`;
+  url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=5d066958a60d315387d9492393935c19`;
   console.log(url);
   fetch(url)
     .then((res) => res.json())
