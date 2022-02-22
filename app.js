@@ -88,7 +88,7 @@ class Weather {
           </div>
           <div class="icon-weather">
             <img
-              src="http://openweathermap.org/img/wn/${
+              src="https://openweathermap.org/img/wn/${
                 this?.weather?.values()?.next()?.value?.icon
               }@2x.png"
             />
