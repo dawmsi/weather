@@ -12,8 +12,6 @@ function clockTimer() {
   setTimeout("clockTimer()", 1000);
 }
 
-const week = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
-
 function formatingClock24(date, hours, minutes) {
   if (date) {
     time = [date.getHours(), date.getMinutes(), date.getSeconds()];
@@ -148,7 +146,7 @@ function AskServer() {
             ) +
               ":" +
               formatingClock24(false, false, new Date().getMinutes()),
-            new Date ((data.dt+(data.timezone)) *1000).getDay(),
+            new Date((data.dt+(data.timezone)) *1000).toGMTString().slice(0,3),
           ])
         ).render();
         if (data?.sys?.country)
