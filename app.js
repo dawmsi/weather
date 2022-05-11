@@ -143,7 +143,7 @@ function AskServer() {
           (lastDate = [
             formatingClock24(
               false,
-              new Date((data.dt+(data.timezone)) *1000).toGMTString().getTime()/1000.0.getHours,
+              new Date((data.dt+(data.timezone)) *1000).toGMTString().slice(17,19),
               false
             ) +
               ":" +
