@@ -69,7 +69,7 @@ class Weather {
         </div>
         <div class="half">
           <div class="day">
-            ${week[lastDate[1]]}
+            ${lastDate[1]}
           </div>
           <div class="time">
              ${lastDate[0]}
