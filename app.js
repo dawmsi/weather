@@ -143,12 +143,12 @@ function AskServer() {
           (lastDate = [
             formatingClock24(
               false,
-              new Date((data.dt+(data.timezone)) *1000).toGMTString().getHours(),
+              new Date((data.dt+(data.timezone)) *1000).toGMTString(),
               false
             ) +
               ":" +
               formatingClock24(false, false, new Date().getMinutes()),
-            new Date (data.dt+(data.timezone)) *1000).getDay(),
+            new Date ((data.dt+(data.timezone)) *1000).getDay(),
           ])
         ).render();
         if (data?.sys?.country)
