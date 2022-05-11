@@ -158,7 +158,7 @@ function AskServer() {
             );
 
         console.log(lastDate);
-        console.log(lastDate[1]);
+        console.log(lastDate[0]);
       } else {
         inputSearchCity.value = data.message;
         cleaninputSC();
