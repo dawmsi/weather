@@ -7,7 +7,7 @@ let now = new Date()
 function clockTimer() {
     now = new Date()
     document.querySelectorAll("#clock").forEach((el) => {
-    el.innerHTML = now.toGMTString().slice(17,25);
+    el.innerHTML = now.toLocaleTimeString()
     setTimeout("clockTimer()", 1000);
   });
 }
