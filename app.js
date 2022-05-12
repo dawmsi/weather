@@ -3,39 +3,13 @@ function key(event) {
   return "key" in event ? event.key : event.code;
 }
 
+let now = new Date()
 function clockTimer() {
-  let date = new Date();
-  let clocks = document.querySelectorAll("#clock");
-  clocks.forEach((el) => {
-    el.innerHTML = formatingClock24(date).join(":");
+    now = new Date()
+    document.querySelectorAll("#clock").forEach((el) => {
+    el.innerHTML = now.toGMTString().slice(17,25);
+    setTimeout("clockTimer()", 1000);
   });
-  setTimeout("clockTimer()", 1000);
-}
-
-function formatingClock24(date, hours, minutes) {
-  if (date) {
-    time = [date.getHours(), date.getMinutes(), date.getSeconds()];
-    if (time[0] < 10) {
-      time[0] = "0" + time[0];
-    }
-    if (time[1] < 10) {
-      time[1] = "0" + time[1];
-    }
-    if (time[2] < 10) {
-      time[2] = "0" + time[2];
-    }
-    return [time[0], time[1], time[2]];
-  } else if (!date && hours && !minutes) {
-    if (hours < 10) {
-      hours = "0" + hours;
-    }
-    return hours;
-  } else if (!date && !hours && minutes) {
-    if (minutes < 10) {
-      minutes = "0" + minutes;
-    }
-    return minutes;
-  }
 }
 
 clockTimer();
@@ -139,13 +113,8 @@ function AskServer() {
           data.weather,
           data.sys,
           (lastDate = [
-            formatingClock24(
-              false,
-              new Date((data.dt+(data.timezone)) *1000).toGMTString().slice(17,19),
-              false
-            ) +
-              ":" +
-              formatingClock24(false, false, new Date().getMinutes()),
+            new Date((data.dt+(data.timezone)) *1000).toGMTString().slice(17,19)+
+            now.toGMTString().slice(19,22),
             new Date((data.dt+(data.timezone)) *1000).toGMTString().slice(0,3),
           ])
         ).render();
